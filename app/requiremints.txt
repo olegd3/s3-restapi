@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+boto3
+typer
+python-multipart
+tortoise-orm
+python-dotenv
+mangum
