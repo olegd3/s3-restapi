@@ -8,7 +8,12 @@ router = APIRouter()
 
 
 @router.get("/")
+@router.get("")
 def get_buckets(s3: BaseClient = Depends(s3_auth)):
     response = s3.list_buckets()
-
-    return response['Buckets']
+    project = 'TestProject'
+    result = {
+        'project': project,
+        'buckets': response['Buckets']
+    }
+    return result
