@@ -5,9 +5,9 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi import File, UploadFile
 from fastapi.responses import JSONResponse
 
-from app.deps import s3_auth
+from app.settings import settings
+from app.endpoints.deps import s3_auth
 from app.s3.upload import upload_file_to_bucket
-from settings import settings
 
 router = APIRouter()
 
