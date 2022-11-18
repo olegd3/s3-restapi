@@ -12,9 +12,11 @@ from app.s3.upload import upload_file_to_bucket
 router = APIRouter()
 
 
-@router.post("/", status_code=status.HTTP_201_CREATED, summary="Upload files to AWS S3 Buckets",
-             description="Upload a valid file to AWS S3 bucket", name="POST files to AWS S3",
-             response_description="Successfully uploaded file to S3 bucket")
+# @router.post("/", status_code=status.HTTP_201_CREATED, summary="Upload files to AWS S3 Buckets",
+#              description="Upload a valid file to AWS S3 bucket", name="POST files to AWS S3",
+#              response_description="Successfully uploaded file to S3 bucket")
+@router.post("/")
+@router.post("")
 def upload_file(
         *, bucket: Union[str, None] = None,
         folder: str,
@@ -29,7 +31,7 @@ def upload_file(
                                        )
 
     if upload_obj:
-        return JSONResponse(content="Object has been uploaded to bucket successfully",
+        return JSONResponse(content=f"{file_obj.filename} has been uploaded to {folder} in bucket {bucket}",
                             status_code=status.HTTP_201_CREATED)
     else:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
