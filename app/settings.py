@@ -4,6 +4,7 @@ from pydantic import BaseSettings
 class Settings(BaseSettings):
     AWS_SERVER_PUBLIC_KEY: str
     AWS_SERVER_SECRET_KEY: str
+    S3_DEFAULT_BUCKET: str
 
     class Config:
         env_file = '.env'
