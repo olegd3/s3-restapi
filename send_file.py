@@ -2,10 +2,10 @@ import json
 import os
 import requests
 
-# S3_UPLOAD_URL = "http://127.0.0.1:8000"
+S3_UPLOAD_URL = "http://127.0.0.1:8000"
 
 
-S3_UPLOAD_URL = "https://yxjb2kqpe5qhc46ypxo6zsp6eu0vuubx.lambda-url.us-east-2.on.aws"
+# S3_UPLOAD_URL = "https://yxjb2kqpe5qhc46ypxo6zsp6eu0vuubx.lambda-url.us-east-2.on.aws"
 # access_token = "sdfJHKsdfjJKHKJsdfJKHJKysdfJKHsdfJKHs"  # TODO: get fresh Token here
 
 
@@ -22,8 +22,8 @@ def upload_engagement_file(filepath):
         headers = {}
         # headers = {"Authorization": "Bearer %s" % access_token}
         upload_response = requests.post(url=url, headers=headers, files=file_to_upload, data=payload, )
-        # fobj.close()
-    print("JSON Response ", upload_response.json())
+    # TODO logging
+    # print(upload_response.json())
     return upload_response
 
 
